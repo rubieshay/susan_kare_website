@@ -1,9 +1,12 @@
+/* RESETS */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     border: 0;
 }
+
+/* GENERAL */
 
 @font-face {
     font-family: "Sysfont";
@@ -29,10 +32,6 @@ header {
     margin-bottom: 1rem;
 }
 
-nav {
-    background: #3f9c91;
-}
-
 h1 {
     font-family: "Sysfont", sans-serif;
     font-size: 3rem;
@@ -43,11 +42,14 @@ h2 {
     font-size: 1.5rem;
     text-align: center;
     font-weight: 600;
+    margin-bottom: 1rem;
 }
 
 main {
-    margin-inline: 5%;
+    margin: max(2.5%, 0.5rem);
 }
+
+/* IMAGES */
 
 figure {
     margin-bottom: 1rem;
@@ -66,3 +68,77 @@ img#home-image {
     width: 100%;
 }
 
+/* NAV */
+
+nav ul {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li ul {
+    display: none;
+}
+
+nav ul li:hover ul {
+    display: block;
+    position: absolute;
+    width: max-content;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav a {
+    background-color: #3f9c91;
+    display: block;
+    color: #91d8d0;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+}
+nav a.hamburger {
+    display: none;
+}
+
+nav a:hover {
+    background: #91d8d0;
+    color: #3f9c91;
+}
+
+@media screen and (width < 500px) {
+    nav a.hamburger {
+        display: block;
+        width: 2.75rem;
+        text-align: center;
+        padding-inline: 0;
+    }
+    nav > ul {
+        display: none;
+    }
+    nav a.hamburger:hover ~ ul {
+        display: block;
+        background: pink;
+    }
+    nav:hover > ul {
+        display: block;
+    }
+    /* nav ul {
+        flex-direction: column;
+    }
+    nav ul li:hover ul {
+        position: static;
+        width: 100%;
+        background-color: #55b6aa;
+    }
+    nav ul li:hover {
+        background-color: #39887f;
+    }
+    nav ul li ul a {
+        padding-left: 2rem;
+    } */
+}
