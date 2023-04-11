@@ -70,39 +70,45 @@ img#home-image {
 
 /* NAV */
 
-nav ul {
+nav ul ul {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
 }
 
-nav ul li {
+nav ul ul li {
     position: relative;
 }
 
-nav ul li ul {
+nav ul ul li ul {
     display: none;
 }
 
-nav ul li:hover ul {
+nav ul ul li:hover ul {
     display: block;
     position: absolute;
     width: max-content;
 }
 
-nav li {
+nav ul li {
     list-style: none;
 }
 
 nav a {
-    background-color: #3f9c91;
+    background: #3f9c91;
     display: block;
     color: #91d8d0;
-    padding: 0.75rem 1rem;
     text-decoration: none;
+    padding: 0.75rem 1rem;
 }
-nav a.hamburger {
+
+nav a.active {
+    background: #107c6f;
+}
+
+nav a.menu-icon {
     display: none;
+    padding: 0.5rem;
 }
 
 nav a:hover {
@@ -111,34 +117,30 @@ nav a:hover {
 }
 
 @media screen and (width < 500px) {
-    nav a.hamburger {
+    nav ul ul {
         display: block;
-        width: 2.75rem;
-        text-align: center;
-        padding-inline: 0;
     }
-    nav > ul {
+    nav a.menu-icon {
+        background: none;
+        display: block;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    nav a.menu-icon img {
+        width: 100%;
+        height: 100%;
+    }
+    nav > ul > li > ul {
         display: none;
     }
-    nav a.hamburger:hover ~ ul {
-        display: block;
-        background: pink;
-    }
-    nav:hover > ul {
+    nav > ul > li:hover > ul {
         display: block;
     }
-    /* nav ul {
-        flex-direction: column;
+    nav > ul > li > ul > li:hover > ul {
+        display: block;
     }
-    nav ul li:hover ul {
+    nav ul ul li:hover ul {
         position: static;
         width: 100%;
-        background-color: #55b6aa;
     }
-    nav ul li:hover {
-        background-color: #39887f;
-    }
-    nav ul li ul a {
-        padding-left: 2rem;
-    } */
 }
