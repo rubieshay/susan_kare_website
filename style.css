@@ -4,6 +4,8 @@
     margin: 0;
     padding: 0;
     border: 0;
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* GENERAL */
@@ -126,7 +128,25 @@ nav a:hover {
         display: block;
         width: 2.5rem;
         height: 2.5rem;
+        position: relative;
     }
+
+    /* This code isn't relavent since clicking on this "X" wouldn't close the menu
+    since we used hovers and not buttons, and this would just re-hover on the element.
+    
+    nav li.nav-container:hover a.menu-icon {
+        visibility: hidden;
+    }
+
+    nav li.nav-container:hover a.menu-icon::after {
+        content: url("images/x_menu.svg");
+        display: block;
+        visibility: visible;
+        position: absolute;
+        top: 0.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+    } */
 
     nav a.menu-icon img {
         width: 100%;
