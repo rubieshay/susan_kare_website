@@ -10,6 +10,14 @@
 
 /* GENERAL */
 
+:root {
+    --background-color: #a2e6db;
+    --menu-color-default: #b2b7bb;
+    --menu-color-active: #83898b;
+    --menu-color-hover: #ccd5d6;
+    --menu-color-gallery: #b2b7bb;
+}
+
 @font-face {
     font-family: "Sysfont";
     src: url("fonts/sysfont.woff2") format("woff2"),
@@ -26,7 +34,7 @@ body {
     font-family: "jost", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-color: #c5efea;
+    background-color: var(--background-color);
     line-height: 1.25;
 }
 
@@ -50,21 +58,32 @@ h2 {
 }
 
 main {
-    margin: max(2.5%, 0.5rem);
+    margin: max(2.5%, 1rem);
+    margin-top: 3.75rem;
 }
 
 /* IMAGES */
 
 img {
     display: block;
-}
-
-img#home-image {
     width: 100%;
 }
 
+figure.home-image {
+    margin-block: 1.5rem;
+}
+
+figure.home-image img {
+    width: min(100%, 40rem);
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 section.gallery {
-    background-color:#107c6f;
     border-radius: 0.5rem;
     padding: 0.75rem;
     display: flex;
@@ -73,7 +92,7 @@ section.gallery {
 }
 
 section.gallery figure {
-    background-color: #91d8d0;
+    background-color: var(--menu-color-gallery);
     padding: 0.75rem;
     border-radius: 0.5rem;
     width: calc((100% - 3*0.75rem)/4);
@@ -82,29 +101,15 @@ section.gallery figure {
     transition: 0.2s ease-in-out transform,
                 0.2s ease-in-out box-shadow;
 }
-
-section.gallery figure:nth-of-type(1n) {
-    transform: rotate(2deg);
-}
-section.gallery figure:nth-of-type(2n) {
-    transform: rotate(-0.5deg);
-}
-section.gallery figure:nth-of-type(3n) {
-    transform: rotate(-1.5deg);
-}
-section.gallery figure:nth-of-type(4n) {
-    transform: rotate(1deg);
-}
-
 section.gallery figure:hover {
-    transform: rotate(0deg) scale(1.1);
+    transform: scale(1.05);
     z-index: 10;
     box-shadow: 0 0 0.5rem 0.25rem #08322daa;
 }
 
 figcaption {
     padding-top: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
 }
 
 @media screen and (width < 1000px) {
@@ -123,13 +128,35 @@ figcaption {
     }
 }
 
+/* VIDEOS */
+
+.video-container {
+    display: flex;
+    justify-content: center;
+}
+
+.video-container iframe {
+    width: min(100%, 100vh);
+    aspect-ratio: 16/9;
+    border: none;
+}
+
 /* TEXT */
 
 p {
     margin-block: 1rem;
+    line-height: 1.4;
 }
 
 /* NAV */
+
+nav li.nav-container {
+    background-color: var(--menu-color-default);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
 
 nav ul.nav-menu, nav ul.sub-menu {
     display: flex;
@@ -156,15 +183,15 @@ nav ul li {
 }
 
 nav a {
-    background: #3f9c91;
+    background: var(--menu-color-default);
+    color: black;
     display: block;
-    color: #91d8d0;
     text-decoration: none;
     padding: 0.75rem 1rem;
 }
 
 nav a.active {
-    background: #107c6f;
+    background: var(--menu-color-active);
 }
 
 nav a.menu-icon {
@@ -173,8 +200,7 @@ nav a.menu-icon {
 }
 
 nav a:hover {
-    background: #91d8d0;
-    color: #3f9c91;
+    background: var(--menu-color-hover);
 }
 
 @media screen and (width < 500px) {
@@ -185,27 +211,10 @@ nav a:hover {
     nav a.menu-icon {
         background: none;
         display: block;
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2.75rem;
+        height: 2.75rem;
         position: relative;
     }
-
-    /* This code isn't relavent since clicking on this "X" wouldn't close the menu
-    since we used hovers and not buttons, and this would just re-hover on the element.
-    
-    nav li.nav-container:hover a.menu-icon {
-        visibility: hidden;
-    }
-
-    nav li.nav-container:hover a.menu-icon::after {
-        content: url("images/x_menu.svg");
-        display: block;
-        visibility: visible;
-        position: absolute;
-        top: 0.5rem;
-        width: 1.5rem;
-        height: 1.5rem;
-    } */
 
     nav a.menu-icon img {
         width: 100%;
