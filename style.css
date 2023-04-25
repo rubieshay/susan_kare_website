@@ -69,6 +69,10 @@ img {
     width: 100%;
 }
 
+img.pixels {
+    image-rendering: pixelated;
+}
+
 figure.home-image {
     margin-block: 1.5rem;
 }
@@ -96,6 +100,7 @@ section.gallery figure {
     padding: 0.75rem;
     border-radius: 0.5rem;
     width: calc((100% - 3*0.75rem)/4);
+    height: max-content;
     z-index: 1;
     box-shadow: 0 0 0.5rem 0.25 #08322d00;
     transition: 0.2s ease-in-out transform,
@@ -104,7 +109,7 @@ section.gallery figure {
 section.gallery figure:hover {
     transform: scale(1.05);
     z-index: 10;
-    box-shadow: 0 0 0.5rem 0.25rem #08322daa;
+    box-shadow: 0 0 0.5rem 0.25rem #08322d65;
 }
 
 figcaption {
@@ -146,6 +151,8 @@ figcaption {
 p {
     margin-block: 1rem;
     line-height: 1.4;
+    max-width: 65ch;
+    margin-inline: auto;
 }
 
 /* NAV */
@@ -234,4 +241,49 @@ nav a:hover {
     nav ul.sub-menu li a {
         padding-left: 2rem;
     }
+}
+
+/* SPECIFIC GALLERY IMAGE CSS */
+
+#cards {
+    position: relative;
+    height: max-content;
+    width: 100%;
+}
+#cards img {
+    padding-inline: 18%;
+    width: 100%;
+    height: auto;
+}
+#cards img:first-child, #cards img:last-of-type {
+    position: absolute;
+    top: 0;
+    transition: 0.2s ease-in-out transform;
+}
+#cards img:first-child {
+    left: -18%;
+    z-index: -1;
+}
+#cards img:last-of-type {
+    left: 18%;
+}
+figure:hover #cards img:first-child {
+    transform: rotate(-4deg);
+}
+figure:hover #cards img:last-of-type {
+    transform: rotate(4deg);
+}
+
+.icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10%;
+    padding: 5%;
+    width: min(100%, 15rem);
+    aspect-ratio: 1;
+}
+.icons img {
+    width: 100%;
+    height: 100%;
 }
