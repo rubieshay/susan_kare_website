@@ -44,9 +44,26 @@ header {
 
 h1 {
     font-family: "Sysfont", sans-serif;
-    font-size: 3rem;
+    font-size: min(11.25vh, 11.25vw, 3rem);
     text-align: center;
     margin-bottom: 1rem;
+    position: relative;
+}
+
+h1::before, h1::after {
+    content: attr(glitch-text);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+h1::after {
+    color: #00a9cb;
+    transform: translate(0.037em, -0.037em);
+}
+h1::before {
+    color: #ff16ad;
+    transform: translate(-0.037em, 0.037em);
 }
 
 h2 {
@@ -73,43 +90,69 @@ img.pixels {
     image-rendering: pixelated;
 }
 
+figure {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
 figure.home-image {
     margin-block: 1.5rem;
 }
-
 figure.home-image img {
     width: min(100%, 40rem);
 }
 
-figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+figure.timeline-entry {
+    width: min(75vw, 20rem);
+    position: relative;
+}
+.timeline-entry:nth-child(2n) {
+    justify-self: right;
+}
+.timeline-entry:nth-child(2n + 1) {
+    justify-self: left;
+}
+figure.timeline-entry figcaption {
+    position: absolute;
+    width: min(67.5vw, 18rem);
+    top: 30%;
+    font-size: min(3.75vw, 1rem);
+    line-height: 1.5;
+}
+
+section.timeline {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    justify-items: center;
+    max-width: 25rem;
+    margin-inline: auto;
 }
 
 section.gallery {
-    border-radius: 0.5rem;
     padding: 0.75rem;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 0.75rem;
 }
-
 section.gallery figure {
     background-color: var(--menu-color-gallery);
     padding: 0.75rem;
     border-radius: 0.5rem;
-    width: calc((100% - 3*0.75rem)/4);
-    height: max-content;
+    width: 100%;
     z-index: 1;
-    box-shadow: 0 0 0.5rem 0.25 #08322d00;
+    box-shadow: 0 0 0.5rem 0.25rem #08322d00;
     transition: 0.2s ease-in-out transform,
                 0.2s ease-in-out box-shadow;
 }
 section.gallery figure:hover {
-    transform: scale(1.05);
-    z-index: 10;
+    transform: scale(1.02);
+    z-index: 5;
     box-shadow: 0 0 0.5rem 0.25rem #08322d65;
+}
+section.gallery figure .figure-container {
+    aspect-ratio: 1;
 }
 
 figcaption {
@@ -118,18 +161,18 @@ figcaption {
 }
 
 @media screen and (width < 1000px) {
-    section.gallery figure {
-        width: calc((100% - 2*0.75rem)/3);
+    section.gallery {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 @media screen and (width < 768px) {
-    section.gallery figure {
-        width: calc((100% - 0.75rem)/2);
+    section.gallery {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 @media screen and (width < 500px) {
-    section.gallery figure {
-        width: 100%
+    section.gallery {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -151,7 +194,7 @@ figcaption {
 p {
     margin-block: 1rem;
     line-height: 1.4;
-    max-width: 65ch;
+    max-width: 40rem;
     margin-inline: auto;
 }
 
@@ -163,6 +206,7 @@ nav li.nav-container {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 100;
 }
 
 nav ul.nav-menu, nav ul.sub-menu {
@@ -245,32 +289,33 @@ nav a:hover {
 
 /* SPECIFIC GALLERY IMAGE CSS */
 
-#cards {
+.cards {
+    display: flex;
+    align-items: center;
     position: relative;
     height: max-content;
-    width: 100%;
+    width: min(100%, 15rem);
 }
-#cards img {
+.cards img {
     padding-inline: 18%;
     width: 100%;
     height: auto;
 }
-#cards img:first-child, #cards img:last-of-type {
+.cards img:first-child, .cards img:last-of-type {
     position: absolute;
-    top: 0;
     transition: 0.2s ease-in-out transform;
 }
-#cards img:first-child {
+.cards img:first-child {
     left: -18%;
     z-index: -1;
 }
-#cards img:last-of-type {
+.cards img:last-of-type {
     left: 18%;
 }
-figure:hover #cards img:first-child {
+figure:hover .cards img:first-child {
     transform: rotate(-4deg);
 }
-figure:hover #cards img:last-of-type {
+figure:hover .cards img:last-of-type {
     transform: rotate(4deg);
 }
 
@@ -278,12 +323,16 @@ figure:hover #cards img:last-of-type {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 10%;
-    padding: 5%;
     width: min(100%, 15rem);
+    gap: min(10%, 1.5rem);
+    padding: min(5%, 0.75rem);
     aspect-ratio: 1;
 }
 .icons img {
     width: 100%;
     height: 100%;
+    transition: 0.2s ease-in-out transform;
+}
+figure:hover .icons img {
+    transform: scale(1.1);
 }
