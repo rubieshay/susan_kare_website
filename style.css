@@ -17,7 +17,10 @@
     --menu-color-default: #b2b7bb;
     --menu-color-active: #83898b;
     --menu-color-hover: #ccd5d6;
-    --menu-color-gallery: #b2b7bb;
+    --card-color-gallery: #b2b7bb;
+    --box-shadow-dark: #08322d65;
+    --box-shadow-light: #0c463f65;
+    --box-shadow-invisible: #08322d00;
 }
 
 @font-face {
@@ -30,6 +33,8 @@
 
 html {
     font-size: 16px;
+    height: 100%;
+    position: relative;
 }
 
 body {
@@ -38,11 +43,13 @@ body {
     font-style: normal;
     background-color: var(--background-color);
     line-height: 1.25;
+    min-height: 100%;
+    position: relative;
 }
 
 main {
-    margin: min(2.5%, 1rem);
-    margin-top: min(6.25vh, 18.75vw, 3.4375rem);
+    margin-inline: min(2.5%, 1rem);
+    padding-top: 2.75rem;
 }
 
 h1 {
@@ -50,6 +57,7 @@ h1 {
     font-size: min(11.25vh, 11.25vw, 3rem);
     text-align: center;
     position: relative;
+    margin-top: 0.3em;
 }
 
 h1::before, h1::after {
@@ -133,20 +141,19 @@ section.gallery {
     gap: 0.75rem;
 }
 section.gallery figure {
-    background-color: var(--menu-color-gallery);
+    background-color: var(--card-color-gallery);
     padding: 0.75rem;
     border-radius: 0.5rem;
     width: 100%;
     height: 100%;
     z-index: 1;
-    box-shadow: 0 0 0.5rem 0.25rem #08322d00;
-    transition: 0.2s ease-in-out transform,
-                0.2s ease-in-out box-shadow;
+    box-shadow: 0 0 0.5rem 0.25rem var(--box-shadow-invisible);
+    transition: 0.2s ease-in-out all;
 }
 section.gallery figure:hover {
     transform: scale(1.02);
     z-index: 5;
-    box-shadow: 0 0 0.5rem 0.25rem #08322d65;
+    box-shadow: 0 0 0.5rem 0.25rem var(--box-shadow-dark);
 }
 section.gallery figure .figure-container {
     aspect-ratio: 1;
@@ -258,6 +265,10 @@ nav a:hover {
 }
 
 @media screen and (width < 500px) {
+    main {
+        padding-top: min(5vh, 15vw, 2.75rem);
+    }
+
     nav ul.nav-menu, nav ul.sub-menu {
         display: none;
     }
@@ -291,7 +302,7 @@ nav a:hover {
     }
 }
 
-/* SPECIFIC GALLERY IMAGE CSS */
+/* SPECIFIC GALLERY CSS */
 
 .cards {
     display: flex;
@@ -347,4 +358,28 @@ figure:hover .cards img:last-of-type {
 }
 .gallery figure:hover .icons img {
     transform: scale(1.1);
+}
+
+.gallery-back-button {
+    display: block;
+    width: min(4rem, 16vw);
+    padding: min(0.5rem, 2vw);
+    aspect-ratio: 1;
+    background-color: var(--menu-color-default);
+    box-shadow: 0 0 1rem 0.25rem var(--box-shadow-light);
+    transition: 0.2s ease-out all;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+}
+.gallery-back-button img {
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+@media (hover: hover) {
+    .gallery-back-button:hover {
+        background-color: var(--menu-color-hover);
+        box-shadow: 0 0 0.5rem 0.25rem var(--box-shadow-dark);
+    }
 }
