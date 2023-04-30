@@ -50,6 +50,7 @@ body {
 main {
     margin-inline: min(2.5%, 1rem);
     padding-top: 2.75rem;
+    padding-bottom: 1.5rem;
 }
 
 h1 {
@@ -141,7 +142,9 @@ section.timeline {
     max-width: 25rem;
     margin-inline: auto;
 }
-
+section.gallery-subpage {
+    margin-top: 2rem;
+}
 section.gallery {
     padding: 0.75rem;
     display: grid;
