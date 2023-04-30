@@ -13,7 +13,7 @@
 /* GENERAL */
 
 :root {
-    --background-color: #a2e6db;
+    --background-color: #b3e4e4;
     --menu-color-default: #b2b7bb;
     --menu-color-active: #83898b;
     --menu-color-hover: #ccd5d6;
@@ -54,30 +54,33 @@ main {
 
 h1 {
     font-family: "Sysfont", sans-serif;
-    font-size: min(11.25vh, 11.25vw, 3rem);
+    font-size: clamp(2.25rem, 15vw, 3rem);
     text-align: center;
     position: relative;
-    margin-top: 0.3em;
+    margin-top: 0.5em;
+    margin-bottom: 0.125em;
+    line-height: 1;
 }
 
 h1::before, h1::after {
     content: attr(glitch-text);
     position: absolute;
     left: 0;
+    top: 0;
     width: 100%;
     z-index: -1;
 }
 h1::after {
-    color: #00a9cb;
+    color: #00ffff;
     transform: translate(0.037em, -0.037em);
 }
 h1::before {
-    color: #ff16ad;
+    color: #ff00ff;
     transform: translate(-0.037em, 0.037em);
 }
 
 h2 {
-    font-size: min(5.625vh, 5.625vw, 1.5rem);
+    font-size: clamp(0.9rem, 6vw, 1.2rem);
     text-align: center;
     font-weight: 600;
     margin-bottom: 1.2em;
@@ -98,6 +101,7 @@ figure {
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
+    align-items: center;
 }
 figure div {
     height: max-content;
@@ -105,6 +109,10 @@ figure div {
 
 figure.home-image img {
     width: min(100%, 40rem);
+}
+figure.home-image figcaption {
+    font-size: clamp(0.65625rem, 4.375vw, 0.875rem);
+    font-style: italic;
 }
 
 figure.timeline-entry {
@@ -148,7 +156,8 @@ section.gallery figure {
     height: 100%;
     z-index: 1;
     box-shadow: 0 0 0.5rem 0.25rem var(--box-shadow-invisible);
-    transition: 0.2s ease-in-out all;
+    transition: 0.2s ease-in-out box-shadow,
+                0.2S ease-in-out transform;
 }
 section.gallery figure:hover {
     transform: scale(1.02);
@@ -205,6 +214,10 @@ p {
     line-height: 1.4;
     max-width: 40rem;
     margin-inline: auto;
+}
+
+p, figcaption {
+    font-size: clamp(0.75rem, 5vw, 1rem);
 }
 
 /* NAV */
@@ -311,6 +324,9 @@ nav a:hover {
     height: max-content;
     width: min(100%, 15rem);
 }
+.gallery-subpage .cards {
+    width: min(90%, 20rem);
+}
 .cards img {
     padding-inline: 18%;
     width: 100%;
@@ -328,10 +344,10 @@ nav a:hover {
 .cards img:last-of-type {
     left: 18%;
 }
-figure:hover .cards img:first-child {
+figure:hover .cards img:first-child, .gallery-subpage .cards img:first-child {
     transform: rotate(-4deg);
 }
-figure:hover .cards img:last-of-type {
+figure:hover .cards img:last-of-type, .gallery-subpage .cards img:last-child {
     transform: rotate(4deg);
 }
 
@@ -362,12 +378,13 @@ figure:hover .cards img:last-of-type {
 
 .gallery-back-button {
     display: block;
-    width: min(4rem, 16vw);
-    padding: min(0.5rem, 2vw);
+    width: 2.5rem;
+    padding: 0.25rem;
     aspect-ratio: 1;
     background-color: var(--menu-color-default);
     box-shadow: 0 0 1rem 0.25rem var(--box-shadow-light);
-    transition: 0.2s ease-out all;
+    transition: 0.2s ease-out box-shadow,
+                0.2s ease-out var(--background-color);
     position: fixed;
     bottom: 1rem;
     left: 1rem;
