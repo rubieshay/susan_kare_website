@@ -20,6 +20,7 @@
     --card-color-gallery: #b2b7bb;
     --box-shadow-dark: #08322d65;
     --box-shadow-light: #0c463f65;
+    --box-shadow-solid: #08322d;
     --box-shadow-invisible: #08322d00;
 }
 
@@ -119,6 +120,9 @@ figcaption {
 .video-container {
     display: flex;
     justify-content: center;
+    border: 1vw solid var(--box-shadow-solid);
+    border-radius: 0.5vw;
+    box-shadow: 0 0 1vw 0.5vw var(--box-shadow-dark);
 }
 
 .video-container iframe {
@@ -246,6 +250,7 @@ figure.home-image figcaption {
 }
 
 /* TIMELINE */
+
 main.timeline-container {
     margin: 0;
     overflow-x: clip;
@@ -273,6 +278,7 @@ figure.timeline-entry {
     width: 100%;
     position: relative;
     transition: 0.2s ease-in-out transform;
+    cursor: pointer;
 }
 figure.timeline-entry figcaption {
     position: absolute;
@@ -283,6 +289,7 @@ figure.timeline-entry figcaption {
 }
 figure.timeline-entry.timeline-hidden {
     transform: scale(0);
+    cursor: default;
 }
 figure.timeline-folder {
     width: 100%;
