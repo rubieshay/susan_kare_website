@@ -39,45 +39,85 @@
     <main>
         <h1>Timeline</h1>
         <section class="timeline">
-            <figure class="timeline-entry">
-                <img class="pixels" src="../images/timeline/png/timelline1.png" alt="Timeline window -- 1954">
-                <figcaption>Born in Ithaca New York on February 5th.</figcaption>
+            <figure id="timeline-folder-1954" class="timeline-folder" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/mac_icons/folder.png" alt="Timeline folder -- 1954">
+                <figcaption>1954</figcaption>
             </figure>
-            <figure class="timeline-entry">
-                <img class="pixels" src="../images/timeline/png/timelline2.png" alt="Timeline window -- 1968">
-                <figcaption>During a high school internship she was introduced to graphic design and photo typesetting.</figcaption>
+            <figure id="timeline-entry-1954" class="timeline-entry timeline-hidden" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/timeline/png/timeline1.png" alt="Timeline window -- 1954">
+                <figcaption>Born in Ithaca New York on February&nbsp;5th.</figcaption>
             </figure>
-            <figure class="timeline-entry">
-                <img class="pixels" src="../images/timeline/png/timelline3.png" alt="Timeline window -- 1975">
-                <figcaption>Earned her B.A. from Mount Holyoke College in Massachusetts.</figcaption>
+            <figure id="timeline-folder-1968" class="timeline-folder" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/mac_icons/folder.png" alt="Timeline folder -- 1968">
+                <figcaption>1968</figcaption>
             </figure>
-            <figure class="timeline-entry">
-                <img class="pixels" src="../images/timeline/png/timelline4.png" alt="Timeline window -- 1978">
-                <figcaption>Received an M.A. and a Ph.D. from New York University.</figcaption>
+            <figure id="timeline-entry-1968" class="timeline-entry timeline-hidden" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/timeline/png/timeline2.png" alt="Timeline window -- 1968">
+                <figcaption>During a high school internship she was introduced to graphic design and photo&nbsp;typesetting.</figcaption>
             </figure>
-            <figure class="timeline-entry">
-                <img class="pixels" src="../images/timeline/png/timelline5.png" alt="Timeline window -- 1982">
-                <figcaption>After working as a curator and sculptor, her high school friend Andy Hertzfeld got her hired at Apple to design icons for the Mac.</figcaption>
+            <figure id="timeline-folder-1975" class="timeline-folder" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/mac_icons/folder.png" alt="Timeline folder -- 1975">
+                <figcaption>1975</figcaption>
             </figure>
-            <figure class="timeline-entry">
-                <img class="pixels" src="../images/timeline/png/timelline6.png" alt="Timeline window -- 1986">
-                <figcaption>Became the creative director at NeXT when Steve Jobs left Apple, where she hired and worked with Paul Rand.</figcaption>
+            <figure id="timeline-entry-1975" class="timeline-entry timeline-hidden" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/timeline/png/timeline3.png" alt="Timeline window -- 1975">
+                <figcaption>Earned her B.A. from Mount Holyoke College in&nbsp;Massachusetts.</figcaption>
             </figure>
-            <figure class="timeline-entry">
-                <img class="pixels" src="../images/timeline/png/timelline7.png" alt="Timeline window -- 1989">
-                <figcaption>Left NeXT and created her own design firm, and worked with companies like IBM, Microsoft, and Facebook.</figcaption>
+            <figure id="timeline-folder-1978" class="timeline-folder" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/mac_icons/folder.png" alt="Timeline folder -- 1978">
+                <figcaption>1978</figcaption>
             </figure>
-            <figure class="timeline-entry">
-                <img class="pixels" src="../images/timeline/png/timelline8.png" alt="Timeline window -- 2015">
-                <figcaption>Hired by Pinterest as Product Design Lead as her first full-time employment in over two decades.</figcaption>
+            <figure id="timeline-entry-1978" class="timeline-entry timeline-hidden" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/timeline/png/timeline4.png" alt="Timeline window -- 1978">
+                <figcaption>Received an M.A. and a Ph.D. from New York&nbsp;University.</figcaption>
             </figure>
-            <figure class="timeline-entry">
-                <img class="pixels" src="../images/timeline/png/timelline9.png" alt="Timeline window -- 2018">
-                <figcaption>Received the AIGA medal on April 20th.</figcaption>
+            <figure id="timeline-folder-1982" class="timeline-folder" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/mac_icons/folder.png" alt="Timeline folder -- 1982">
+                <figcaption>1982</figcaption>
             </figure>
-            <figure class="timeline-entry">
-                <img class="pixels" src="../images/timeline/png/timelline10.png" alt="Timeline window -- 2021">
-                <figcaption>Hired as Design Architect at Niantic Labs - an AR design firm.</figcaption>
+            <figure id="timeline-entry-1982" class="timeline-entry timeline-hidden" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/timeline/png/timeline5.png" alt="Timeline window -- 1982">
+                <figcaption>After working as a curator and sculptor, her high school friend Andy Hertzfeld got her hired at Apple to design icons for the&nbsp;Mac.</figcaption>
+            </figure>
+            <figure id="timeline-folder-1986" class="timeline-folder" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/mac_icons/folder.png" alt="Timeline folder -- 1986">
+                <figcaption>1986</figcaption>
+            </figure>
+            <figure id="timeline-entry-1986" class="timeline-entry timeline-hidden" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/timeline/png/timeline6.png" alt="Timeline window -- 1986">
+                <figcaption>Became the creative director at NeXT when Steve Jobs left Apple, where she hired and worked with Paul&nbsp;Rand.</figcaption>
+            </figure>
+            <figure id="timeline-folder-1989" class="timeline-folder" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/mac_icons/folder.png" alt="Timeline folder -- 1989">
+                <figcaption>1989</figcaption>
+            </figure>
+            <figure id="timeline-entry-1989" class="timeline-entry timeline-hidden" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/timeline/png/timeline7.png" alt="Timeline window -- 1989">
+                <figcaption>Left NeXT and created her own design firm, and worked with companies like IBM, Microsoft, and&nbsp;Facebook.</figcaption>
+            </figure>
+            <figure id="timeline-folder-2015" class="timeline-folder" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/mac_icons/folder.png" alt="Timeline folder -- 2015">
+                <figcaption>2015</figcaption>
+            </figure>
+            <figure id="timeline-entry-2015" class="timeline-entry timeline-hidden" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/timeline/png/timeline8.png" alt="Timeline window -- 2015">
+                <figcaption>Hired by Pinterest as Product Design Lead as her first full-time employment in over two&nbsp;decades.</figcaption>
+            </figure>
+            <figure id="timeline-folder-2018" class="timeline-folder" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/mac_icons/folder.png" alt="Timeline folder -- 2018">
+                <figcaption>2018</figcaption>
+            </figure>
+            <figure id="timeline-entry-2018" class="timeline-entry timeline-hidden" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/timeline/png/timeline9.png" alt="Timeline window -- 2018">
+                <figcaption>Received the AIGA medal on April&nbsp;20th.</figcaption>
+            </figure>
+            <figure id="timeline-folder-2021" class="timeline-folder" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/mac_icons/folder.png" alt="Timeline folder -- 2021">
+                <figcaption>2021</figcaption>
+            </figure>
+            <figure id="timeline-entry-2021" class="timeline-entry timeline-hidden" onclick="changeTimeline(this)">
+                <img class="pixels" src="../images/timeline/png/timeline10.png" alt="Timeline window -- 2021">
+                <figcaption>Hired as Design Architect at Niantic Labs - an AR design&nbsp;firm.</figcaption>
             </figure>
         </section>
     </main>
