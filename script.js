@@ -12,3 +12,18 @@ function changeTimeline (element) {
     const entry = document.getElementById("timeline-entry-" + year);
     entry.classList.toggle("timeline-hidden");
 }
+
+function changeQuote (element) {
+    const quoteNum = element.id.split("-")[2];
+    for (let i = 1; i <= 4; i++) {
+        let quote = document.getElementById("quote-" + i);
+        let quoteButton = document.getElementById("quote-button-" + i);
+        if (i == quoteNum) {
+            quote.classList.add("quote-active");
+            quoteButton.classList.add("quote-button-active");
+        } else {
+            quote.classList.remove("quote-active");
+            quoteButton.classList.remove("quote-button-active");
+        }
+    }
+}

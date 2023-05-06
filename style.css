@@ -8,6 +8,7 @@
     font-style: normal;
     text-decoration: none;
     color: #000000;
+    background: none;
 }
 
 /* GENERAL */
@@ -497,4 +498,42 @@ main.credits p {
         display: flex;
         flex-direction: column;
     }
+}
+
+/* PHILOSOPHY */
+
+section.quote-buttons {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    width: min(80vw, 20rem);
+    gap: min(8vw, 2rem);
+    margin-inline: auto;
+    margin-block: clamp(1.8rem, 12vw, 2.4rem);
+}
+section.quote-buttons button {
+    width: 100%;
+    aspect-ratio: 1;
+    cursor: pointer;
+    transition: 0.35s ease-in-out transform;
+}
+.quote-button-active {
+    transform: scale(1.1);
+}
+.quotes {
+    position: relative;
+}
+.quote {
+    opacity: 0;
+    max-width: min(100%, 40rem);
+    width: max-content;
+    transition: 0.35s ease-in-out opacity;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+}
+.quote-active {
+    display: block;
+    opacity: 1;
 }

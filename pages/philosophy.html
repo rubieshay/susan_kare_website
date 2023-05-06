@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,600;1,200;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/mac_icons/happy_mac.png" type="image/x-icon">
+    <script src="../script.js"></script>
+    <title>Susan Kare - Credits</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="nav-container">
+                    <a class="menu-icon" href="#">
+                        <img src="../images/nav/hamburger_menu.svg" alt="navigation menu icon">
+                    </a>
+                    <ul class="nav-menu">
+                        <li><a href="../index.html">Home</a></li>
+                        <li>
+                            <a href="gallery.html">Gallery</a>
+                            <ul class="sub-menu">
+                                <li><a href="gallery/solitaire_cards.html">Solitaire Cards</a></li>
+                                <li><a href="gallery/windows_icons.html">Windows Icons</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="timeline.html">Timeline</a></li>
+                        <li><a class="active" href="philosophy.html">Philosophy</a></li>
+                        <li><a href="video.html">Video</a></li>
+                        <li><a href="credits.html">Credits</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Philosophy</h1>
+        <section class="quote-buttons">
+            <button id="quote-button-1" class="quote-button" onclick="changeQuote(this)">
+                <img class="pixels" src="../images/mac_icons/question.png" alt="Mac question mark icon">
+            </button>
+            <button id="quote-button-2" class="quote-button" onclick="changeQuote(this)">
+                <img src="../images/other/paintbrush.svg" alt="Mac paintbrush icon">
+            </button>
+            <button id="quote-button-3" class="quote-button" onclick="changeQuote(this)">
+                <img src="../images/other/command_key.svg" alt="Command key symbol">
+            </button>
+            <button id="quote-button-4" class="quote-button" onclick="changeQuote(this)">
+                <img class="pixels" src="../images/other/steve_jobs.png" alt="Pixel icon of Steve Jobs">
+            </button>
+        </section>
+        <section class="quotes">
+            <p id="quote-1" class="quote">“In design, there is not one right answer, there's a range.”</p>
+            <p id="quote-2" class="quote">“People say graphic design is so different now, because you have so many more pixels and
+                colors to work with... But when you study art history, you see there's just nothing new
+                under the sun. Mosaics and needlework, it's all analogous to pixel and bitmap art. And
+                with it all, good design's not about what medium you're working in, it's about thinking
+                hard about what you want to do and what you have to work with before you start.”</p>
+            <p id="quote-3" class="quote">“I like to think that good icons are instantly recognizable — even if someone's never
+                seen it, you can ask them what it does, and they get it — or it's so easy to remember
+                that if someone tells you what it is once, it's easy to remember when you look at it.
+                I think that's a lot to ask of a symbol, that if you tested it everyone would all have
+                the same one-word response as its function.”</p>
+            <p id="quote-4" class="quote">“I learned a lot about the cumulative value of attention to detail from Steve Jobs, and
+                about pushing the limits of a medium. I still think about his philosophy of not showing
+                too much information at once and the value of simplicity in visual messaging.”</p>
+        </section>
+    </main>
+</body>
+</html>
