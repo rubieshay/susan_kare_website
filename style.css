@@ -384,9 +384,6 @@ section.gallery figure:hover {
     z-index: 5;
     box-shadow: 0 0 0.5rem 0.25rem var(--box-shadow-dark);
 }
-section.gallery figure .figure-container {
-    aspect-ratio: 1;
-}
 
 .gallery-subpage figcaption {
     width: min(85vw, 25rem);
@@ -438,8 +435,6 @@ section.gallery figure .figure-container {
 /* SPECIFIC GALLERY ENTRY TYPES */
 
 .cards {
-    display: flex;
-    align-items: center;
     position: relative;
     height: max-content;
     width: min(100%, 15rem);
@@ -448,21 +443,20 @@ section.gallery figure .figure-container {
     width: min(90%, 20rem);
 }
 .cards img {
-    padding-inline: 18%;
-    width: 100%;
-    height: auto;
-    z-index: 2;
+    position: relative;
+    top: 0%;
+    width: 64%;
+    margin-inline: auto;
 }
 .cards img:first-child, .cards img:last-of-type {
     position: absolute;
     transition: 0.2s ease-in-out transform;
 }
 .cards img:first-child {
-    left: -18%;
-    z-index: 1;
+    left: 0%;
 }
 .cards img:last-of-type {
-    left: 18%;
+    left: 36%;
 }
 figure:hover .cards img:first-child, .gallery-subpage .cards img:first-child {
     transform: rotate(-4deg);
