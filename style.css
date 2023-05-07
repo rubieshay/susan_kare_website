@@ -283,29 +283,32 @@ figure.about-image div {
 }
 
 /* TIMELINE */
-
-main.timeline-container {
-    margin: 0;
-    overflow-x: clip;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+main.timeline-container::after {
+    content: "";
+    height: calc(100% - min(5%, 2rem));
+    margin-inline: min(2.5%, 1rem);
+    aspect-ratio: 1;
+    background-image: url(images/timeline/png/background_square.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    image-rendering: pixelated;
+    position: fixed;
+    top: calc(min(5vh, 15vw, 2.75rem) + clamp(4.5rem, 30vw, 6rem));
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -10;
 }
-section.timeline {
+section.timeline-entries {
     display: grid;
-    width: min(120vw, 32em);
-    padding-inline: min(16.875vw, 4.5em);
-    padding-block: min(3vw, 0.8em);
-    grid-template-columns: 1fr 4fr;
+    width: calc(100% - min(18.75vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/8, 5rem));
+    margin-left: min(18.75vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/8, 5rem);
+    padding-inline: calc((100% - min(18.75vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/8, 5rem) - min(75vw, 20rem))/2);
     grid-auto-flow: row;
     gap: min(3vw, 0.8em);
     justify-items: center;
     align-items: center;
-    background-image: url(images/timeline/png/background.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    image-rendering: pixelated;
+    position: relative;
 }
 figure.timeline-entry {
     width: 100%;
@@ -322,19 +325,29 @@ figure.timeline-entry figcaption {
 }
 figure.timeline-entry.timeline-hidden {
     transform: scale(0);
+    display: none;
     cursor: default;
 }
-figure.timeline-folder {
+.timeline-buttons {
+    position: fixed;
+    display: grid;
+    width: min(15vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/10, 4rem);
+    grid-template-rows: repeat(10, min(15vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/10, 4rem));
+}
+button.timeline-button {
     width: 100%;
     aspect-ratio: 1;
     position: relative;
     cursor: pointer;
 }
-figure.timeline-folder figcaption {
+.timeline-label {
     font-family: "Sysfont", sans-serif;
-    font-size: min(3.75vw, 1rem);
-    padding-top: 0.5em;
+    font-size: min(3.75vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/40, 1rem);
     position: absolute;
+    width: 100%;
+    margin-block: 0;
+    top: 60%;
+    transform: translateY(-60%);
 }
 
 /* GALLERY */
