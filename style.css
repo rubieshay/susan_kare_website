@@ -305,16 +305,22 @@ section.timeline-entries {
     margin-left: min(18.75vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/8, 5rem);
     padding-inline: calc((100% - min(18.75vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/8, 5rem) - min(75vw, 20rem))/2);
     grid-auto-flow: row;
-    gap: min(3vw, 0.8em);
     justify-items: center;
     align-items: center;
     position: relative;
 }
 figure.timeline-entry {
     width: 100%;
+    margin-block: min(3vw, 0.8em);
     position: relative;
-    transition: 0.2s ease-in-out transform;
     cursor: pointer;
+    transition: 0.3s width, 0.3s position;
+}
+figure.timeline-entry.timeline-hidden {
+    cursor: default;
+    margin: 0;
+    width: 0;
+    height: 0;
 }
 figure.timeline-entry figcaption {
     position: absolute;
@@ -322,11 +328,12 @@ figure.timeline-entry figcaption {
     top: 30%;
     font-size: min(3.75vw, 1rem);
     line-height: 1.5;
+    transition: 0.3s width, 0.3s font-size;
 }
-figure.timeline-entry.timeline-hidden {
-    transform: scale(0);
-    display: none;
-    cursor: default;
+figure.timeline-entry.timeline-hidden figcaption {
+    width: 0;
+    height: 0;
+    font-size: 0;
 }
 .timeline-buttons {
     position: fixed;
