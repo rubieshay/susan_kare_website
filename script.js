@@ -11,6 +11,7 @@ function changeTimeline (element) {
     const year = element.id.split("-")[2];
     const entry = document.getElementById("timeline-entry-" + year);
     entry.classList.toggle("timeline-hidden");
+    element.classList.toggle("timeline-button-closed");
 }
 
 function changeQuote (element) {

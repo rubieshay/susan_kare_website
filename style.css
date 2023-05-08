@@ -346,6 +346,12 @@ button.timeline-button {
     aspect-ratio: 1;
     position: relative;
     cursor: pointer;
+    background-image: url(images/other/open_folder.png);
+    background-size: contain;
+    image-rendering: pixelated;
+}
+button.timeline-button.timeline-button-closed {
+    background-image: url(images/mac_icons/folder.png);
 }
 .timeline-label {
     font-family: "Sysfont", sans-serif;
