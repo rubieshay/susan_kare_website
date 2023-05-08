@@ -519,6 +519,10 @@ main.credits p {
         flex-direction: column;
     }
 }
+#self-credit {
+    font-style: italic;
+    text-align: center;
+}
 
 /* PHILOSOPHY */
 
