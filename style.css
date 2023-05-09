@@ -18,7 +18,7 @@
     --menu-color-default: #b2b7bb;
     --menu-color-active: #83898b;
     --menu-color-hover: #ccd5d6;
-    --card-color-gallery: #b2b7bb;
+    --card-color-gallery: #82b2b5;
     --box-shadow-dark: #08322d65;
     --box-shadow-light: #0c463f65;
     --box-shadow-solid: #08322d;
@@ -376,7 +376,8 @@ section.gallery {
 }
 section.gallery figure {
     background-color: var(--card-color-gallery);
-    padding: 0.75rem;
+    padding-inline: 2rem;
+    padding-block: 0.75rem;
     border-radius: 0.5rem;
     width: 100%;
     height: 100%;
@@ -386,6 +387,7 @@ section.gallery figure {
                 0.2S ease-in-out transform;
 }
 section.gallery .figure-container {
+    width: 100%;
     aspect-ratio: 1;
 }
 section.gallery figure:hover {
@@ -457,7 +459,7 @@ section.gallery figure:hover {
     width: 64%;
     margin-inline: auto;
 }
-section.gallery .cards img {
+.gallery .cards img {
     top: 50%;
     transform: translateY(-50%);
 }
@@ -471,13 +473,13 @@ section.gallery .cards img {
 .cards img:last-of-type {
     left: 36%;
 }
-section.gallery figure:hover .cards img:first-child {
+.gallery figure:hover .cards img:first-child {
     transform: translateY(-50%) rotate(-4deg);
 }
 .gallery-subpage .cards img:first-child {
     transform: rotate(-4deg);
 }
-section.gallery figure:hover .cards img:last-of-type {
+.gallery figure:hover .cards img:last-of-type {
     transform: translateY(-50%) rotate(4deg);
 }
 .gallery-subpage .cards img:last-child {
@@ -512,6 +514,27 @@ section.gallery figure:hover .cards img:last-of-type {
 }
 .gallery figure:hover .icons img {
     transform: scale(1.1);
+}
+
+.gallery .figure-container.single-image img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 90%;
+    object-fit: contain;
+    transition: 0.2s ease-in-out transform;
+}
+.gallery figure:hover .single-image img {
+    transform: translateY(-50%) scale(1.1);
+}
+.gallery-subpage .single-image {
+    width: min(100%, 40rem);
+    max-height: 20rem;
+}
+.gallery-subpage .single-image img {
+    width: 100%;
+    max-height: 20rem;
+    object-fit: contain;
 }
 
 /* CREDITS */
