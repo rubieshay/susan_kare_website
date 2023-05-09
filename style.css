@@ -15,6 +15,7 @@
 
 :root {
     --background-color: #b3e4e4;
+    --background-color-transparent: #c8f4f483;
     --menu-color-default: #b2b7bb;
     --menu-color-active: #83898b;
     --menu-color-hover: #ccd5d6;
@@ -128,21 +129,6 @@ figcaption {
     padding-top: 0.5em;
 }
 
-/* VIDEOS */
-
-.video-container {
-    display: flex;
-    justify-content: center;
-}
-
-.video-container iframe {
-    width: min(100%, 100vh);
-    aspect-ratio: 16/9;
-    border: 1vw solid var(--box-shadow-solid);
-    border-radius: 0.5vw;
-    box-shadow: 0 0 1vw 0.5vw var(--box-shadow-dark);
-}
-
 /* NAV */
 
 header {
@@ -238,11 +224,34 @@ nav a:hover {
     }
 }
 
-/* HOME/ABOUT */
+/* HOME */
 
+.hero img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    max-height: 60%;
+    object-fit: contain;
+    object-position: right;
+    z-index: -5;
+}
+.hero p {
+    background-color: var(--background-color-transparent);
+    box-shadow: 0 0 2rem 2rem var(--background-color-transparent);
+}
+
+/* ABOUT */
+
+section.about h2 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+section.about h2:first-child {
+    margin-top: 1em;
+}
 figure.about-image img {
     max-width: min(100%, 40rem);
-    max-height: min(30vh, 20rem);
+    max-height: min(40vh, 30rem);
     object-fit: contain;
 }
 figure.about-image figcaption {
@@ -280,87 +289,6 @@ figure.about-image .about-colors img {
 figure.about-image div {
     max-width: min(100%, 30rem);
     max-height: min(30vh, 15rem);
-}
-
-/* TIMELINE */
-main.timeline-container::after {
-    content: "";
-    height: calc(100% - min(5%, 2rem));
-    margin-inline: min(2.5%, 1rem);
-    aspect-ratio: 1;
-    background-image: url(images/timeline/png/background_square.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    image-rendering: pixelated;
-    position: fixed;
-    top: calc(min(5vh, 15vw, 2.75rem) + clamp(4.5rem, 30vw, 6rem));
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -10;
-}
-section.timeline-entries {
-    display: grid;
-    width: calc(100% - min(18.75vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/8, 5rem));
-    margin-left: min(18.75vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/8, 5rem);
-    padding-inline: calc((100% - min(18.75vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/8, 5rem) - min(75vw, 20rem))/2);
-    grid-auto-flow: row;
-    justify-items: center;
-    align-items: center;
-    position: relative;
-}
-figure.timeline-entry {
-    width: 100%;
-    margin-block: min(3vw, 0.8em);
-    position: relative;
-    cursor: pointer;
-    transition: 0.3s width, 0.3s position;
-}
-figure.timeline-entry.timeline-hidden {
-    cursor: default;
-    margin: 0;
-    width: 0;
-    height: 0;
-}
-figure.timeline-entry figcaption {
-    position: absolute;
-    width: 90%;
-    top: 30%;
-    font-size: min(3.75vw, 1rem);
-    line-height: 1.5;
-    transition: 0.3s width, 0.3s font-size;
-}
-figure.timeline-entry.timeline-hidden figcaption {
-    width: 0;
-    height: 0;
-    font-size: 0;
-}
-.timeline-buttons {
-    position: fixed;
-    display: grid;
-    width: min(15vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/10, 4rem);
-    grid-template-rows: repeat(10, min(15vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/10, 4rem));
-}
-button.timeline-button {
-    width: 100%;
-    aspect-ratio: 1;
-    position: relative;
-    cursor: pointer;
-    background-image: url(images/other/open_folder.png);
-    background-size: contain;
-    image-rendering: pixelated;
-}
-button.timeline-button.timeline-button-closed {
-    background-image: url(images/mac_icons/folder.png);
-}
-.timeline-label {
-    font-family: "Sysfont", sans-serif;
-    font-size: min(3.75vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/40, 1rem);
-    position: absolute;
-    width: 100%;
-    margin-block: 0;
-    top: 60%;
-    transform: translateY(-60%);
 }
 
 /* GALLERY */
@@ -565,6 +493,89 @@ main.credits p {
     text-align: center;
 }
 
+/* TIMELINE */
+
+main.timeline-container::after {
+    content: "";
+    height: calc(100% - min(5%, 2rem));
+    margin-inline: min(2.5%, 1rem);
+    aspect-ratio: 1;
+    background-image: url(images/timeline/png/background_square.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    image-rendering: pixelated;
+    position: fixed;
+    top: calc(min(5vh, 15vw, 2.75rem) + clamp(4.5rem, 30vw, 6rem));
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -10;
+}
+section.timeline-entries {
+    display: grid;
+    width: calc(100% - min(18.75vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/8, 5rem));
+    margin-left: min(18.75vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/8, 5rem);
+    padding-inline: calc((100% - min(18.75vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/8, 5rem) - min(75vw, 20rem))/2);
+    grid-auto-flow: row;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+}
+figure.timeline-entry {
+    width: 100%;
+    margin-block: min(3vw, 0.8em);
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s width, 0.3s position;
+}
+figure.timeline-entry.timeline-hidden {
+    cursor: default;
+    margin: 0;
+    width: 0;
+    height: 0;
+}
+figure.timeline-entry figcaption {
+    position: absolute;
+    width: 90%;
+    top: 30%;
+    font-size: min(3.75vw, 1rem);
+    line-height: 1.5;
+    transition: 0.3s width, 0.3s font-size;
+}
+figure.timeline-entry.timeline-hidden figcaption {
+    width: 0;
+    height: 0;
+    font-size: 0;
+}
+.timeline-buttons {
+    position: fixed;
+    display: grid;
+    width: min(15vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/10, 4rem);
+    grid-template-rows: repeat(10, min(15vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/10, 4rem));
+}
+button.timeline-button {
+    width: 100%;
+    aspect-ratio: 1;
+    position: relative;
+    cursor: pointer;
+    background-image: url(images/other/open_folder.png);
+    background-size: contain;
+    image-rendering: pixelated;
+}
+button.timeline-button.timeline-button-closed {
+    background-image: url(images/mac_icons/folder.png);
+}
+.timeline-label {
+    font-family: "Sysfont", sans-serif;
+    font-size: min(3.75vw, (90vh - 2.75rem - clamp(3rem, 20vw, 4rem))/40, 1rem);
+    position: absolute;
+    width: 100%;
+    margin-block: 0;
+    top: 60%;
+    transform: translateY(-60%);
+}
+
+
 /* PHILOSOPHY */
 
 section.quote-buttons {
@@ -601,4 +612,19 @@ section.quote-buttons button {
 .quote-active {
     display: block;
     opacity: 1;
+}
+
+/* VIDEOS */
+
+.video-container {
+    display: flex;
+    justify-content: center;
+}
+
+.video-container iframe {
+    width: min(100%, 100vh);
+    aspect-ratio: 16/9;
+    border: 1vw solid var(--box-shadow-solid);
+    border-radius: 0.5vw;
+    box-shadow: 0 0 1vw 0.5vw var(--box-shadow-dark);
 }
