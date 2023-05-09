@@ -385,6 +385,9 @@ section.gallery figure {
     transition: 0.2s ease-in-out box-shadow,
                 0.2S ease-in-out transform;
 }
+section.gallery .figure-container {
+    aspect-ratio: 1;
+}
 section.gallery figure:hover {
     transform: scale(1.02);
     z-index: 5;
@@ -454,6 +457,10 @@ section.gallery figure:hover {
     width: 64%;
     margin-inline: auto;
 }
+section.gallery .cards img {
+    top: 50%;
+    transform: translateY(-50%);
+}
 .cards img:first-child, .cards img:last-of-type {
     position: absolute;
     transition: 0.2s ease-in-out transform;
@@ -464,10 +471,16 @@ section.gallery figure:hover {
 .cards img:last-of-type {
     left: 36%;
 }
-figure:hover .cards img:first-child, .gallery-subpage .cards img:first-child {
+section.gallery figure:hover .cards img:first-child {
+    transform: translateY(-50%) rotate(-4deg);
+}
+.gallery-subpage .cards img:first-child {
     transform: rotate(-4deg);
 }
-figure:hover .cards img:last-of-type, .gallery-subpage .cards img:last-child {
+section.gallery figure:hover .cards img:last-of-type {
+    transform: translateY(-50%) rotate(4deg);
+}
+.gallery-subpage .cards img:last-child {
     transform: rotate(4deg);
 }
 
@@ -483,9 +496,14 @@ figure:hover .cards img:last-of-type, .gallery-subpage .cards img:last-child {
 .gallery-subpage .icons {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(6, 1fr);
     width: min(85vw, 15rem);
     gap: min(6.75vw, 1.125rem)
+}
+.gallery-subpage .icons-15 {
+    grid-template-rows: repeat(5, 1fr);
+}
+.gallery-subpage .icons-18 {
+    grid-template-rows: repeat(6, 1fr);
 }
 .gallery .icons img {
     width: 100%;
