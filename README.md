@@ -1,4 +1,4 @@
 # susan_kare_website
-This is a project for Communications Design Lab II at Carnegie Mellon about a design hero -- Susan Kare.
+This is a project to make an informational web experience about a chosen design hero -- Susan Kare.
 
-(Currently in progress)
+This was made for Communications Design Studio/Lab II at Carnegie Mellon University in Spring 2023.
